@@ -1,5 +1,44 @@
 {
-    "ventas": [
-        
-    ]
+    "ventas": {
+        "Samsung": [
+            {
+                "codigo": 12,
+                "nombre": "lxndrX",
+                "cantidad": 1,
+                "serie": "55435435434",
+                "precioUni": 12321.0,
+                "subtotal": 12321.0,
+                "total": 12321.0
+            },
+            {
+                "codigo": 12,
+                "nombre": "lxndrX",
+                "cantidad": 4,
+                "serie": "55435435434",
+                "precioUni": 12321.0,
+                "subtotal": 49284.0,
+                "total": 12321.0
+            }
+        ],
+        "Huawei": [
+            {
+                "codigo": 34,
+                "nombre": "lxndrS",
+                "cantidad": 2,
+                "serie": "233246654345",
+                "precioUni": 1291.0,
+                "subtotal": 2582.0,
+                "total": 1291.0
+            },
+            {
+                "codigo": 34,
+                "nombre": "lxndrS",
+                "cantidad": 1,
+                "serie": "233246654345",
+                "precioUni": 1291.0,
+                "subtotal": 1291.0,
+                "total": 1291.0
+            }
+        ]
+    }
 }

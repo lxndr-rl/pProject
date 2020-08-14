@@ -1,6 +1,6 @@
 import json
-import hashlib #ENCRIPTA CONTRASEÑA
 import os
+import datetime
 
 lstOpciones = {1: 'Registro de Celulares', 2: 'Venta de Celulares', 3: 'Lista de Productos Vendidos por Marca', 4: 'Actualizar Producto', 5: 'Salir'}
 lstMarcas = {1: 'Samsung', 2: 'Huawei', 3: 'iPhone (Apple)', 4: 'Sony'}
@@ -37,12 +37,16 @@ def pIni():
     print('                                    (@@@@@@@@@@@@@@@@@@@@@@@@@@(                ')
     print('                                             ,@@@@@@@@                          ')
 
+def mostrarFecha():
+    fecha = (f'{datetime.datetime.now().strftime("%x")} {datetime.datetime.now().strftime("%X")}')
+    return fecha
+
 def login(user, passw):
     with open('login.json') as login_file: 
         users = json.load(login_file) 
     login_file.close()
     for item in users['usuarios']:
-        if (item['usuario'] == user and item['contrasena'] == hashlib.md5(passw.encode()).hexdigest()):    #hashlib.md5(passw.encode()).hexdigest()    ENCRIPTA INGRESO. SOLO REEMPLAZAR POR 'passw'
+        if (item['usuario'] == user and item['contrasena'] == passw):
             return True
         else:
             return False
@@ -66,14 +70,51 @@ def RegDeCel():
             os.system('pause')
             return
     nombreProd = input('Ingrese el nombre del producto: ')
-    cantidad = int(input('Ingrese la cantidad a ingresar: '))
+    while True:
+        try:
+            cantidad = int(input('Ingrese la cantidad a ingresar: '))
+            while cantidad<1:
+                print('Ingreso inválido')
+                cantidad = int(input('Ingrese la cantidad a ingresar: '))
+        except:
+            print('Error')
+            continue
+        break
+
     for marcas in lstMarcas:
         print(f'{marcas}.- {lstMarcas[marcas]}')
-    marca = int(input('Seleccione la marca: '))
+    while True:
+        try:
+            marca = int(input('Seleccione la marca: '))
+            while marca <1 or marca >len(lstMarcas):
+                print('Ingreso inválido')
+                marca = int(input('Seleccione la marca: '))
+        except:
+            print('Error')
+            continue
+        break
     for series in lstNumSerie:
         print(f'{series}.- {lstNumSerie[series]}')
-    serie = int(input('Seleccione el número de serie: '))
-    prec = float(input('Ingrese el precio del producto: '))
+    while True:
+        try:
+            serie = int(input('Seleccione el número de serie: '))
+            while serie <1 or serie >len(lstNumSerie):
+                print('Ingreso inválido')
+                serie = int(input('Seleccione el número de serie: '))
+        except:
+            print('Error')
+            continue
+        break
+    while True:
+        try:
+            prec = float(input('Ingrese el precio del producto: '))
+            while prec<0:
+                print('Ingreso Inválido')
+                prec = float(input('Ingrese el precio del producto: '))
+        except:
+            print('Error')
+            continue
+        break
 
     with open('data.json') as data_file: 
         data = json.load(data_file) 
@@ -86,6 +127,9 @@ def RegDeCel():
     os.system('pause')
 
 def VentDeCel():
+    def anadir(data, filename='reporte.json'): 
+        with open(filename,'w') as f: 
+            json.dump(data, f, indent=4) 
     encontrado = False
     def formaPago():
         print('\nSeleccion su forma de pago')
@@ -128,13 +172,24 @@ def VentDeCel():
     print(f'|------------------|')
     print(f"|TOTAL      {item['precio']}|")    #FALTA AGREGAR IMPUESTO
     print(f'|-------------|\n')
+    
+    with open('reporte.json') as reporte_file: 
+        data = json.load(reporte_file) 
+        temp = data['ventas']
+    try:
+        temp[item['marca']].append({'codigo': codProd, 'nombre': item['nombre'], 'cantidad': cant, 'serie': item['serie'], 'precioUni': item['precio'], 'subtotal': item['precio']*cant, 'total': item['precio']})
+    except:
+        temp[item['marca']] = [{'codigo': codProd, 'nombre': item['nombre'], 'cantidad': cant, 'serie': item['serie'], 'precioUni': item['precio'], 'subtotal': item['precio']*cant, 'total': item['precio']}]
+    reporte_file.close()
+    anadir(data)
     os.system('pause')
 
-        
 def ListDeProdVend():
-    print('Lista de Productos Vendidos por Marca\n')
+    print('\nLista de Productos Vendidos por Marca\n')
     os.system('pause')
 
 def ActuProd():
     print('Actualizar Producto\n')
     os.system('pause')
+
+#ListDeProdVend()

@@ -11,9 +11,8 @@ while True:
     else:
         os.system('cls')
         pIni()
-        print('Error')
+        print('\nCredenciales incorrectas')
         continue
-
 
 selecc = 'n'
 while selecc != 's':
