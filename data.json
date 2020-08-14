@@ -1,1 +1,27 @@
-{"entries": [{"codigo": 12, "nombre": "lxndrX", "cantidad": 14, "marca": "Samsung", "serie": "55435435434", "precio": 12321.0}, {"codigo": 34, "nombre": "lxndrS", "cantidad": 47, "marca": "Huawei", "serie": "233246654345", "precio": 1291.0}, {"codigo": 91, "nombre": "lxndrP", "cantidad": 19, "marca": "Samsung", "serie": "7544534534", "precio": 3212.0}]}
+{"entries": [
+    {
+        "codigo": 12, 
+        "nombre": "lxndrX", 
+        "cantidad": 12, 
+        "marca": "Samsung", 
+        "serie": "55435435434", 
+        "precio": 12321.0
+    }, 
+    {
+        "codigo": 34, 
+        "nombre": "lxndrS", 
+        "cantidad": 42, 
+        "marca": "Huawei", 
+        "serie": "233246654345", 
+        "precio": 1291.0
+    }, 
+    {
+        "codigo": 91, 
+        "nombre": "lxndrP", 
+        "cantidad": 19, 
+        "marca": "Samsung", 
+        "serie": "7544534534", 
+        "precio": 3212.0
+    }
+    ]
+}

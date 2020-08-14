@@ -1,7 +1,7 @@
-import getpass
 from func import *
 
 pIni()
+print(f'\n{fecha()}\n')
 print('Bienvenido al sistema de inventario\nInicie sesión')
 while True:
     user = input('Ingrese su usuario: ')
@@ -11,6 +11,7 @@ while True:
     else:
         os.system('cls')
         pIni()
+        print(f'\n{fecha()}\n')
         print('\nCredenciales incorrectas')
         continue
 
@@ -19,6 +20,7 @@ while selecc != 's':
     while True:
         try:
             os.system('cls')
+            print(f'{fecha()}\n')
             opciones()
             selecc = int(input('Seleccione su opción: '))
             while selecc > 5 or selecc <1:
@@ -26,6 +28,7 @@ while selecc != 's':
                 selecc = int(input('Seleccione su opción: '))
         except:
             print('Error')
+            os.system('pause')
             continue
         break
     if selecc == 1:
