@@ -39,8 +39,7 @@ def pIni():
     print('                                             ,@@@@@@@@                          ')
 
 def fecha():
-    fecha = (f'{datetime.datetime.now().strftime("%x")} {datetime.datetime.now().strftime("%X")}')
-    return fecha
+    return (f'{datetime.datetime.now().strftime("%x")} {datetime.datetime.now().strftime("%X")}')
 
 def login(user, passw):
     with open('login.json') as login_file: 
@@ -49,8 +48,7 @@ def login(user, passw):
     for item in users['usuarios']:
         if (item['usuario'] == user and item['contrasena'] == passw):
             return True
-        else:
-            return False
+    return False
 
 def opciones():
     for opc in lstOpciones:
@@ -309,14 +307,88 @@ def ActuProd():
     
     if editN == 's':
         print('Modificando nombre')
+        nombre = input('Ingrese el nuevo nombre: ')
+        for item in data['entries']:
+            if item['codigo'] == codProd:
+                item['nombre'] = nombre
+                break
+        with open('data.json', 'w') as data_file:
+            json.dump(data,data_file)
     if editC == 's':
         print('Modificando cantidad')
+        while True:
+            try:
+                cantidad = int(input('Ingrese la nueva cantidad: '))
+                while cantidad<1:
+                    print('Ingrese una cantidad válida')
+                    cantidad = int(input('Ingrese la nueva cantidad: '))
+            except:
+                print('Error')
+                continue
+            break
+        for item in data['entries']:
+            if item['codigo'] == codProd:
+                item['cantidad'] = cantidad
+                break
+        with open('data.json', 'w') as data_file:
+            json.dump(data,data_file)
     if editM == 's':
         print('Modificanto marca')
+        for marcas in lstMarcas:
+            print(f'{marcas}.- {lstMarcas[marcas]}')
+        while True:
+            try:
+                marca = int(input('Seleccione la marca: '))
+                while marca <1 or marca >len(lstMarcas):
+                    print('Ingreso inválido')
+                    marca = int(input('Seleccione la marca: '))
+            except:
+                print('Error')
+                continue
+            break
+        for item in data['entries']:
+            if item['codigo'] == codProd:
+                item['marca'] = lstMarcas[marca]
+                break
+        with open('data.json', 'w') as data_file:
+            json.dump(data,data_file)
     if editS == 's':
         print('Modificando numero de serie')
+        for series in lstNumSerie:
+            print(f'{series}.- {lstNumSerie[series]}')
+        while True:
+            try:
+                serie = int(input('Seleccione el número de serie: '))
+                while serie <1 or serie >len(lstNumSerie):
+                    print('Ingreso inválido')
+                    serie = int(input('Seleccione el número de serie: '))
+            except:
+                print('Error')
+                continue
+            break
+        for item in data['entries']:
+            if item['codigo'] == codProd:
+                item['serie'] = lstNumSerie[serie]
+                break
+        with open('data.json', 'w') as data_file:
+            json.dump(data,data_file)
     if editP == 's':
         print('Modificando precio')
+        while True:
+            try:
+                precio = float(input('Ingrese el nuevo precio: '))
+                while precio<1:
+                    print('Ingrese una cantidad válida')
+                    precio = float(input('Ingrese el nuevo precio: '))
+            except:
+                print('Error')
+                continue
+            break
+        for item in data['entries']:
+            if item['codigo'] == codProd:
+                item['precio'] = precio
+                break
+        with open('data.json', 'w') as data_file:
+            json.dump(data,data_file)
     #print(f"\nNombre: {item['nombre']}\nStock: {item['cantidad']}\nMarca: {item['marca']}\nNúmero de Serie: {item['serie']}\nPrecio: {item['precio']}")
     os.system('pause')
-ActuProd()
