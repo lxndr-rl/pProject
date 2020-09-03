@@ -20,6 +20,46 @@
                 "precioUni": 12321.0,
                 "subtotal": 12321.0,
                 "total": 12321.0
+            },
+            {
+                "codigo": 12,
+                "nombre": "lxndrX",
+                "cantidad": 1,
+                "serie": "55435435434",
+                "fecha": "08/23/20 15:51:46",
+                "precioUni": 12321.0,
+                "subtotal": 12321.0,
+                "total": 12321.0
+            },
+            {
+                "codigo": 12,
+                "nombre": "Galaxy S10",
+                "cantidad": 1,
+                "serie": "55435435434",
+                "fecha": "08/23/20 23:18:25",
+                "precioUni": 199.99,
+                "subtotal": 199.99,
+                "total": 199.99
+            },
+            {
+                "codigo": 12,
+                "nombre": "Galaxy S10",
+                "cantidad": 3,
+                "serie": "55435435434",
+                "fecha": "08/23/20 23:43:40",
+                "precioUni": 199.99,
+                "subtotal": 599.97,
+                "total": 599.97
+            },
+            {
+                "codigo": 12,
+                "nombre": "Galaxy S10",
+                "cantidad": 3,
+                "serie": "55435435434",
+                "fecha": "08/23/20 23:47:35",
+                "precioUni": 199.99,
+                "subtotal": 599.97,
+                "total": 599.97
             }
         ],
         "Huawei": [
@@ -42,6 +82,50 @@
                 "precioUni": 1291.0,
                 "subtotal": 2582.0,
                 "total": 1291.0
+            }
+        ],
+        "Alcatel": [
+            {
+                "codigo": 11,
+                "nombre": "Arduino",
+                "cantidad": 12,
+                "serie": "233246654345",
+                "fecha": "08/17/20 14:08:13",
+                "precioUni": 231.0,
+                "subtotal": 2772.0,
+                "total": 231.0
+            },
+            {
+                "codigo": 11,
+                "nombre": "OneTouch 911",
+                "cantidad": 10,
+                "serie": "233246654345",
+                "fecha": "08/26/20 15:14:04",
+                "precioUni": 231.0,
+                "subtotal": 2310.0,
+                "total": 2310.0
+            }
+        ],
+        "Sony": [
+            {
+                "codigo": 42,
+                "nombre": "Ulti",
+                "cantidad": 23,
+                "serie": "233246654345",
+                "fecha": "08/22/20 16:29:55",
+                "precioUni": 293.42,
+                "subtotal": 6748.66,
+                "total": 293.42
+            },
+            {
+                "codigo": 42,
+                "nombre": "Xperia Z5",
+                "cantidad": 1,
+                "serie": "233246654345",
+                "fecha": "08/23/20 23:16:25",
+                "precioUni": 293.42,
+                "subtotal": 293.42,
+                "total": 293.42
             }
         ]
     }
